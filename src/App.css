@@ -5,7 +5,7 @@
     font-family: "Nunito", sans-serif;
   }
   
-  button {
+  .login nav button {
     border: none;
     outline: none;
     width: 100%;
@@ -93,7 +93,6 @@
   
   .hero {
     width: 100%;
-    min-height: 100vh;
   }
   
   .hero nav {

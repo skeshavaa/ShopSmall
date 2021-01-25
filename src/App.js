@@ -3,6 +3,8 @@ import React, {useState, useEffect} from 'react'
 import Login from './login'
 import Hero from './hero.js'
 import './App.css'
+import 'semantic-ui-css/semantic.min.css'
+import Menu from './components/Menu'
 
 const App = () => {
   const [password, setPassword] = useState("")
@@ -81,7 +83,10 @@ const App = () => {
   return (
     <div className="App">
       { user ? (
-        <Hero handleLogout={handleLogout}/>
+        <>
+          <Hero handleLogout={handleLogout}/>
+          <Menu />
+        </>
       ) : 
       (
         <>
