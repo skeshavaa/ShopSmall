@@ -1,59 +1,39 @@
 import React, { useState, useEffect, Component } from 'react'
-import {
-  Button,
-  Checkbox,
-  Form,
-  Input,
-  Radio,
-  Select,
-  TextArea,
-} from 'semantic-ui-react'
+import Input from '@material-ui/core/TextField';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
 
 const options = [
   { key: 'm', text: 'Consumer', value: 'Consumer' },
   { key: 'f', text: 'Business Owner', value: 'Business Owner' },
 ]
 
-class Menu extends Component {
-  state = {}
+const Menu = () => {
 
-  handleChange = (e, { value }) => this.setState({ value })
+    const [firstName, setfirstName] = useState("")
+    const [lastName, setlastName] = useState("")
+    const [type, setType] = useState("Consumer")
 
-  render() {
-    const { value } = this.state
+    console.log(type)
+
     return (
-      <Form>
-        <Form.Group widths='equal'>
-          <Form.Field
-            control={Input}
-            label='First name'
-            placeholder='First name'
-          />
-          <Form.Field
-            control={Input}
-            label='Last name'
-            placeholder='Last name'
-          />
-          <Form.Field
-            control={Select}
-            label='Gender'
-            options={options}
-            placeholder='Gender'
-          />
-        </Form.Group>
-        <Form.Field
-          control={TextArea}
-          label='About'
-          placeholder='Tell us more about you...'
-        />
-        <Form.Field
-          control={Checkbox}
-          label='I agree to the Terms and Conditions'
-        />
-        <Form.Field control={Button}>Submit</Form.Field>
-      </Form>
+     <div>
+        <div>
+        <Input required label="First Name" onChange={(event) => setfirstName(event.target.value)}/>
+      </div>
+      <div>
+        <Input required label="Last Name" onChange={(event) => setlastName(event.target.value)}/>
+      </div>
+      <div>
+        <InputLabel id="demo-simple-select-label">Type of Consumer</InputLabel>
+        <Select defaultValue="Consumer" onChange={(event) => setType(event.target.value)}>
+          <MenuItem value={"Consumer"}>Consumer</MenuItem>
+          <MenuItem value={"Business Owner"}>Business Owner</MenuItem>
+        </Select>
+      </div>
+     </div>
     )
   }
-}
 
 export default Menu
